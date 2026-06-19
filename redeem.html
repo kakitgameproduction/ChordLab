@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promo Code Redeem | Chordasy</title>
+    <meta name="description" content="Claim a Chordasy Google Play promo code with your invite code and email." />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="canonical" href="https://chordasy.com/redeem.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260619-promo-1" />
+    <link rel="stylesheet" href="promo.css?v=20260619-promo-1" />
+  </head>
+  <body data-page="promo-redeem">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html#help">Quick Start</a>
+          <a href="download.html">Download</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="promo-main">
+      <div class="promo-shell">
+        <section class="promo-hero">
+          <div>
+            <p class="promo-eyebrow">Invite Redeem</p>
+            <h1>Claim your Chordasy Google Play code.</h1>
+          </div>
+          <p class="promo-lead">
+            This page is for invited testers and friends. Enter your invite code and email, and we will issue a Google Play promo code from the matching group.
+          </p>
+          <div class="promo-stat-grid">
+            <div class="promo-stat-card">
+              <span class="promo-stat-label">Group</span>
+              <strong id="group-status-value" class="promo-stat-value">Not verified</strong>
+            </div>
+            <div class="promo-stat-card">
+              <span class="promo-stat-label">Remaining</span>
+              <strong id="remaining-status-value" class="promo-stat-value">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <div class="promo-grid">
+          <section class="promo-panel">
+            <div>
+              <p class="promo-eyebrow">Redeem</p>
+              <h2>Use your invite details</h2>
+            </div>
+            <p class="promo-copy">
+              If the same email has already claimed a code from this group, the same code will be shown again instead of issuing a new one.
+            </p>
+            <form id="redeem-form" class="promo-form">
+              <div class="promo-form-row">
+                <label for="invite-code">Invite Code</label>
+                <input id="invite-code" type="text" name="inviteCode" autocomplete="off" placeholder="Enter your invite code" required />
+              </div>
+              <div class="promo-form-row">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              </div>
+              <div class="promo-actions">
+                <button id="check-invite" class="promo-button promo-button-secondary" type="button">Check Invite</button>
+                <button class="promo-button promo-button-primary" type="submit">Claim Google Play Code</button>
+              </div>
+              <p id="redeem-status" class="promo-message" data-tone="muted">Enter your invite code to check access.</p>
+            </form>
+          </section>
+
+          <section class="promo-panel">
+            <div>
+              <p class="promo-eyebrow">Result</p>
+              <h2>Your issued code</h2>
+            </div>
+            <div id="redeem-success" class="promo-code-result" hidden>
+              <span id="claimed-code" class="promo-code-pill"></span>
+              <p id="claimed-meta" class="promo-code-meta"></p>
+              <a class="promo-button promo-button-primary" href="https://play.google.com/redeem" target="_blank" rel="noreferrer">Open Google Play Redeem</a>
+            </div>
+            <p class="promo-note">
+              Codes are assigned while stock lasts. If the pool is empty, this page will let you know and no code will be issued.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chordasy</span>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+    <script src="promo.js?v=20260619-promo-1"></script>
+  </body>
+</html>

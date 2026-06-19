@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promo Admin | Chordasy</title>
+    <meta name="description" content="Manage Chordasy promo groups, codes, claims, and blacklist rules." />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="canonical" href="https://chordasy.com/admin.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260619-promo-1" />
+    <link rel="stylesheet" href="promo.css?v=20260619-promo-1" />
+  </head>
+  <body data-page="promo-admin">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="redeem.html">Redeem</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="promo-main">
+      <section id="admin-login-section" class="promo-login-shell">
+        <div class="promo-login-card">
+          <p class="promo-eyebrow">Promo Admin</p>
+          <h1>Sign in to manage code groups.</h1>
+          <p class="promo-lead">
+            Use your admin username and password to manage invite groups, upload new Google Play code batches, review claims, and blacklist email addresses.
+          </p>
+          <form id="admin-login-form" class="promo-form">
+            <div class="promo-form-row">
+              <label for="admin-username">Username</label>
+              <input id="admin-username" type="text" autocomplete="username" required />
+            </div>
+            <div class="promo-form-row">
+              <label for="admin-password">Password</label>
+              <input id="admin-password" type="password" autocomplete="current-password" required />
+            </div>
+            <div class="promo-actions">
+              <button class="promo-button promo-button-primary" type="submit">Sign In</button>
+            </div>
+            <p id="admin-login-message" class="promo-message"></p>
+          </form>
+        </div>
+      </section>
+
+      <div id="admin-app" class="promo-admin-shell promo-hidden">
+        <section class="promo-hero">
+          <div>
+            <p class="promo-eyebrow">Dashboard</p>
+            <h1>Control your promo code workspace.</h1>
+          </div>
+          <p class="promo-lead">
+            Keep different groups on separate invite codes, upload new batches when stock is low, review who claimed each code, and block unwanted email addresses.
+          </p>
+          <div class="promo-admin-summary">
+            <div class="promo-summary-card">
+              <span class="promo-summary-label">Groups</span>
+              <strong id="summary-groups" class="promo-summary-value">0</strong>
+            </div>
+            <div class="promo-summary-card">
+              <span class="promo-summary-label">Available Codes</span>
+              <strong id="summary-available" class="promo-summary-value">0</strong>
+            </div>
+            <div class="promo-summary-card">
+              <span class="promo-summary-label">Claimed Codes</span>
+              <strong id="summary-claimed" class="promo-summary-value">0</strong>
+            </div>
+            <div class="promo-summary-card">
+              <span class="promo-summary-label">Blacklisted Emails</span>
+              <strong id="summary-blacklist" class="promo-summary-value">0</strong>
+            </div>
+          </div>
+          <div class="promo-actions">
+            <button id="admin-refresh" class="promo-button promo-button-secondary" type="button">Refresh</button>
+            <button id="admin-logout" class="promo-button promo-button-secondary" type="button">Log Out</button>
+          </div>
+        </section>
+
+        <div class="promo-admin-grid">
+          <section class="promo-panel">
+            <div>
+              <p class="promo-eyebrow">Groups</p>
+              <h2>Create a new invite group</h2>
+            </div>
+            <form id="create-group-form" class="promo-form">
+              <div class="promo-form-row">
+                <label for="group-name">Group Name</label>
+                <input id="group-name" type="text" placeholder="Friends June 2026" required />
+              </div>
+              <div class="promo-form-row">
+                <label for="group-invite-code">Invite Code</label>
+                <input id="group-invite-code" type="text" placeholder="friends-june" required />
+              </div>
+              <div class="promo-actions">
+                <button class="promo-button promo-button-primary" type="submit">Create Group</button>
+              </div>
+              <p id="create-group-message" class="promo-message"></p>
+            </form>
+          </section>
+
+          <section class="promo-panel">
+            <div>
+              <p class="promo-eyebrow">Upload</p>
+              <h2>Import a new promo code batch</h2>
+            </div>
+            <form id="import-codes-form" class="promo-form">
+              <div class="promo-form-row">
+                <label for="import-group-id">Target Group</label>
+                <select id="import-group-id" required></select>
+              </div>
+              <div class="promo-form-row">
+                <label for="batch-label">Batch Label</label>
+                <input id="batch-label" type="text" placeholder="2026-06-round-1" />
+              </div>
+              <div class="promo-form-row">
+                <label for="codes-text">Codes</label>
+                <textarea id="codes-text" placeholder="Paste one code per line, or paste CSV content here."></textarea>
+                <p class="promo-field-hint">Header rows are ignored. Duplicates are skipped automatically.</p>
+              </div>
+              <div class="promo-form-row">
+                <label for="codes-file">CSV File</label>
+                <input id="codes-file" class="promo-file-input" type="file" accept=".csv,text/csv" />
+              </div>
+              <div class="promo-actions">
+                <button class="promo-button promo-button-primary" type="submit">Import Codes</button>
+              </div>
+              <p id="import-message" class="promo-message"></p>
+            </form>
+          </section>
+        </div>
+
+        <section class="promo-table-card">
+          <div>
+            <p class="promo-eyebrow">Groups</p>
+            <h2>All invite groups</h2>
+          </div>
+          <div class="promo-table-wrap">
+            <table class="promo-table">
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Status</th>
+                  <th>Available</th>
+                  <th>Claimed</th>
+                  <th>Total</th>
+                  <th>Last Import</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="groups-table-body">
+                <tr><td colspan="7">No groups yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="promo-admin-grid">
+          <section class="promo-table-card">
+            <div>
+              <p class="promo-eyebrow">Codes</p>
+              <h2>Inspect and delete unused codes</h2>
+            </div>
+            <form id="codes-explorer-form" class="promo-table-tools">
+              <div class="promo-inline-row" style="width: 100%;">
+                <div class="promo-form-row">
+                  <label for="codes-group-id">Group</label>
+                  <select id="codes-group-id"></select>
+                </div>
+                <div class="promo-form-row">
+                  <label for="codes-status">Status</label>
+                  <select id="codes-status">
+                    <option value="">All statuses</option>
+                    <option value="available">Available only</option>
+                    <option value="claimed">Claimed only</option>
+                  </select>
+                </div>
+              </div>
+              <button class="promo-button promo-button-secondary" type="submit">Load Codes</button>
+            </form>
+            <p id="codes-message" class="promo-message"></p>
+            <div class="promo-table-wrap">
+              <table class="promo-table">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Status</th>
+                    <th>Batch</th>
+                    <th>Claimed By</th>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="codes-table-body">
+                  <tr><td colspan="6">Select a group to inspect codes.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="promo-panel">
+            <div>
+              <p class="promo-eyebrow">Blacklist</p>
+              <h2>Block unwanted email addresses</h2>
+            </div>
+            <form id="blacklist-form" class="promo-form">
+              <div class="promo-form-row">
+                <label for="blacklist-email">Email</label>
+                <input id="blacklist-email" type="email" placeholder="blocked@example.com" required />
+              </div>
+              <div class="promo-form-row">
+                <label for="blacklist-reason">Reason</label>
+                <input id="blacklist-reason" type="text" placeholder="duplicate claim attempt" />
+              </div>
+              <div class="promo-actions">
+                <button class="promo-button promo-button-primary" type="submit">Add to Blacklist</button>
+              </div>
+              <p id="blacklist-message" class="promo-message"></p>
+            </form>
+            <div class="promo-table-wrap">
+              <table class="promo-table">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Reason</th>
+                    <th>Added</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="blacklist-table-body">
+                  <tr><td colspan="4">No blacklisted emails.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <section class="promo-table-card">
+          <div>
+            <p class="promo-eyebrow">Claims</p>
+            <h2>Review who claimed each code</h2>
+          </div>
+          <form id="claims-filter-form" class="promo-table-tools">
+            <div class="promo-inline-row" style="width: 100%;">
+              <div class="promo-form-row">
+                <label for="claims-group-id">Group</label>
+                <select id="claims-group-id"></select>
+              </div>
+              <div class="promo-form-row">
+                <label for="claims-email">Email Filter</label>
+                <input id="claims-email" type="email" placeholder="you@example.com" />
+              </div>
+            </div>
+            <button class="promo-button promo-button-secondary" type="submit">Load Claims</button>
+          </form>
+          <p id="claims-message" class="promo-message"></p>
+          <div class="promo-table-wrap">
+            <table class="promo-table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Group</th>
+                  <th>Code</th>
+                  <th>Claimed At</th>
+                  <th>Invite Label</th>
+                </tr>
+              </thead>
+              <tbody id="claims-table-body">
+                <tr><td colspan="5">No claim records yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chordasy</span>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+    <script src="promo.js?v=20260619-promo-1"></script>
+  </body>
+</html>
