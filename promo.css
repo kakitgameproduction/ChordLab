@@ -55,8 +55,9 @@
 
 .promo-login-card h1 {
   font-size: clamp(2rem, 3.9vw, 3.05rem);
-  max-width: none;
-  white-space: nowrap;
+  max-width: 12ch;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .promo-lead {
@@ -289,6 +290,15 @@ body[data-page="promo-admin"] .promo-main {
   padding: 28px 0 60px;
 }
 
+body[data-page="promo-admin"] #admin-login-section {
+  width: min(700px, 100%);
+}
+
+body[data-page="promo-admin"] #admin-login-section .promo-login-card {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 body[data-page="promo-admin"] .promo-admin-shell > *,
 body[data-page="promo-admin"] .promo-admin-grid > *,
 body[data-page="promo-admin"] .promo-admin-summary > * {
@@ -341,6 +351,11 @@ body[data-page="promo-admin"] .promo-stack {
 
 body[data-page="promo-admin"] #admin-login-section .promo-form {
   width: min(560px, 100%);
+}
+
+body[data-page="promo-admin"] #admin-login-section .promo-login-card h1 {
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  max-width: 11ch;
 }
 
 body[data-page="promo-admin"] .promo-form label,

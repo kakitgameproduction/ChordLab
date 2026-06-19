@@ -51,6 +51,15 @@ const API_BASE =
     return auth ? { Authorization: `Basic ${auth}` } : {};
   }
 
+  function escapeHtml(value) {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
   async function initRedeemPage() {
     const form = document.getElementById("redeem-form");
     if (!form) return;
@@ -243,6 +252,7 @@ const API_BASE =
           <td>${group.last_imported_at || "-"}</td>
           <td>
             <div class="promo-toolbar">
+              <button class="promo-button promo-button-secondary" data-group-invite="${group.id}" data-group-name="${escapeHtml(group.name)}">Update Invite</button>
               <button class="promo-button promo-button-secondary" data-group-toggle="${group.id}" data-active="${group.is_active ? "1" : "0"}">${group.is_active ? "Disable" : "Enable"}</button>
             </div>
           </td>
@@ -260,6 +270,37 @@ const API_BASE =
               method: "PATCH",
               body: JSON.stringify({ isActive: nextActive }),
             });
+            await refreshDashboard();
+          } catch (error) {
+            setMessage(createGroupMessage, error.message, "error");
+          } finally {
+            button.disabled = false;
+          }
+        });
+      });
+
+      groupsTableBody.querySelectorAll("[data-group-invite]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const groupId = button.getAttribute("data-group-invite");
+          const groupName = button.getAttribute("data-group-name") || "this group";
+          const inviteCode = window.prompt(`Enter a new invite code for ${groupName}:`, "");
+          if (inviteCode === null) {
+            return;
+          }
+
+          const nextInviteCode = inviteCode.trim();
+          if (!nextInviteCode) {
+            setMessage(createGroupMessage, "Invite code update was cancelled because the new code was empty.", "error");
+            return;
+          }
+
+          button.disabled = true;
+          try {
+            await adminFetch(`/admin/groups/${groupId}`, {
+              method: "PATCH",
+              body: JSON.stringify({ inviteCode: nextInviteCode }),
+            });
+            setMessage(createGroupMessage, `Invite code updated for ${groupName}.`, "success");
             await refreshDashboard();
           } catch (error) {
             setMessage(createGroupMessage, error.message, "error");
