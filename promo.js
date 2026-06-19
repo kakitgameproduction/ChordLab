@@ -1,5 +1,7 @@
 (function () {
-  const API_BASE = window.CHORDASY_PROMO_API_BASE || "/api/promo";
+const API_BASE =
+  window.CHORDASY_PROMO_API_BASE ||
+  "https://chordasy-promo.kakitgameproduction.workers.dev/api/promo";
 
   function setMessage(element, text, tone) {
     if (!element) return;
