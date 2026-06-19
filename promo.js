@@ -56,13 +56,28 @@ const API_BASE =
     if (!form) return;
     const inviteCode = document.getElementById("invite-code");
     const email = document.getElementById("email");
+    const emailRow = document.getElementById("redeem-email-row");
     const statusButton = document.getElementById("check-invite");
+    const submitButton = document.getElementById("redeem-submit");
     const statusMessage = document.getElementById("redeem-status");
     const successCard = document.getElementById("redeem-success");
     const codeValue = document.getElementById("claimed-code");
     const codeMeta = document.getElementById("claimed-meta");
     const groupLabel = document.getElementById("group-status-value");
     const remainingLabel = document.getElementById("remaining-status-value");
+
+    function setInviteAccepted(isAccepted) {
+      emailRow.classList.toggle("promo-hidden", !isAccepted);
+      submitButton.classList.toggle("promo-hidden", !isAccepted);
+      statusButton.classList.toggle("promo-hidden", isAccepted);
+      email.disabled = !isAccepted;
+      email.required = isAccepted;
+      if (!isAccepted) {
+        email.value = "";
+      }
+    }
+
+    setInviteAccepted(false);
 
     async function checkInvite() {
       const value = inviteCode.value.trim();
@@ -78,8 +93,11 @@ const API_BASE =
         });
         groupLabel.textContent = data.group.name;
         remainingLabel.textContent = String(data.group.availableCount);
-        setMessage(statusMessage, "Invite code is ready. Enter your email to claim a code.", "success");
+        setInviteAccepted(true);
+        email.focus();
+        setMessage(statusMessage, "Invite code accepted. Enter your email to redeem.", "success");
       } catch (error) {
+        setInviteAccepted(false);
         groupLabel.textContent = "Not verified";
         remainingLabel.textContent = "0";
         successCard.hidden = true;
@@ -109,7 +127,6 @@ const API_BASE =
         return;
       }
 
-      const submitButton = form.querySelector('button[type="submit"]');
       submitButton.disabled = true;
       setMessage(statusMessage, "Issuing your Google Play code...", "muted");
       try {

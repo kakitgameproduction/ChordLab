@@ -47,6 +47,16 @@
   line-height: 1;
 }
 
+.promo-hero h1 {
+  font-size: clamp(2.7rem, 7vw, 5.2rem);
+  max-width: 10ch;
+}
+
+.promo-login-card h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  max-width: 11ch;
+}
+
 .promo-lead {
   width: min(700px, 100%);
   margin-bottom: 0;

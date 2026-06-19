@@ -29,10 +29,10 @@
         <section class="promo-hero">
           <div>
             <p class="promo-eyebrow">Invite Redeem</p>
-            <h1>Claim your Chordasy Google Play code.</h1>
+            <h1>Claim your Chordasy code.</h1>
           </div>
           <p class="promo-lead">
-            This page is for invited testers and friends. Enter your invite code and email, and we will issue a Google Play promo code from the matching group.
+            This page is for invited testers and friends. Enter your invite code first. Once it is accepted, you can enter your email and redeem a Google Play promo code from the matching group.
           </p>
           <div class="promo-stat-grid">
             <div class="promo-stat-card">
@@ -60,13 +60,13 @@
                 <label for="invite-code">Invite Code</label>
                 <input id="invite-code" type="text" name="inviteCode" autocomplete="off" placeholder="Enter your invite code" required />
               </div>
-              <div class="promo-form-row">
+              <div id="redeem-email-row" class="promo-form-row promo-hidden">
                 <label for="email">Email</label>
                 <input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
               </div>
               <div class="promo-actions">
-                <button id="check-invite" class="promo-button promo-button-secondary" type="button">Check Invite</button>
-                <button class="promo-button promo-button-primary" type="submit">Claim Google Play Code</button>
+                <button id="check-invite" class="promo-button promo-button-secondary" type="button">Enter</button>
+                <button id="redeem-submit" class="promo-button promo-button-primary promo-hidden" type="submit">Redeem Code</button>
               </div>
               <p id="redeem-status" class="promo-message" data-tone="muted">Enter your invite code to check access.</p>
             </form>
