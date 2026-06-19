@@ -33,9 +33,9 @@
 .promo-eyebrow {
   margin-bottom: 14px;
   color: #d8ff70;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -48,13 +48,13 @@
 }
 
 .promo-hero h1 {
-  font-size: clamp(2.35rem, 4.8vw, 4.2rem);
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
   max-width: none;
   white-space: nowrap;
 }
 
 .promo-login-card h1 {
-  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-size: clamp(2rem, 3.9vw, 3.05rem);
   max-width: none;
   white-space: nowrap;
 }
@@ -63,7 +63,8 @@
   width: min(700px, 100%);
   margin-bottom: 0;
   color: #dce7fb;
-  font-size: 1.06rem;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .promo-stat-grid,
@@ -112,7 +113,8 @@
 
 .promo-panel h2,
 .promo-table-card h2 {
-  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  line-height: 1.14;
 }
 
 .promo-copy {
@@ -138,7 +140,7 @@
 .promo-form label,
 .promo-table-tools label {
   color: #ffffff;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.03em;
 }
@@ -149,12 +151,13 @@
 .promo-table-tools input,
 .promo-table-tools select {
   width: 100%;
-  padding: 15px 16px;
+  padding: 14px 16px;
   border: 1px solid rgba(170, 220, 255, 0.2);
   border-radius: 18px;
   background: rgba(7, 10, 18, 0.74);
   color: #f8fbff;
   font: inherit;
+  font-size: 0.98rem;
   outline: none;
 }
 
@@ -185,11 +188,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
+  min-height: 46px;
   padding: 0 18px;
   border: 0;
   border-radius: 999px;
   font: inherit;
+  font-size: 0.96rem;
   font-weight: 800;
   cursor: pointer;
 }
@@ -221,13 +225,14 @@
 .promo-help {
   margin: 0;
   color: #b6c5e0;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
+  line-height: 1.5;
 }
 
 .promo-message {
   min-height: 24px;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
 }
 
 .promo-message[data-tone="success"] {
@@ -269,7 +274,7 @@
 }
 
 .promo-login-shell {
-  width: min(860px, 100%);
+  width: min(760px, 100%);
   margin: 0 auto;
   padding-top: 20px;
 }
@@ -302,7 +307,7 @@ body[data-page="promo-admin"] .promo-hero {
 }
 
 body[data-page="promo-admin"] .promo-hero h1 {
-  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  font-size: clamp(1.95rem, 3.5vw, 3rem);
   white-space: normal;
   max-width: 12ch;
 }
@@ -310,18 +315,6 @@ body[data-page="promo-admin"] .promo-hero h1 {
 body[data-page="promo-admin"] .promo-lead {
   width: min(620px, 100%);
   font-size: 0.98rem;
-}
-
-body[data-page="promo-admin"] .promo-panel,
-body[data-page="promo-admin"] .promo-table-card {
-  padding: 22px;
-}
-
-body[data-page="promo-admin"] .promo-panel h2,
-body[data-page="promo-admin"] .promo-table-card h2 {
-  font-size: clamp(1.05rem, 2.1vw, 1.6rem);
-  line-height: 1.12;
-  overflow-wrap: anywhere;
 }
 
 body[data-page="promo-admin"] .promo-summary-card,
@@ -348,26 +341,7 @@ body[data-page="promo-admin"] .promo-stack {
 
 body[data-page="promo-admin"] .promo-form label,
 body[data-page="promo-admin"] .promo-table-tools label {
-  font-size: 0.88rem;
-}
-
-body[data-page="promo-admin"] .promo-form input,
-body[data-page="promo-admin"] .promo-form textarea,
-body[data-page="promo-admin"] .promo-form select,
-body[data-page="promo-admin"] .promo-table-tools input,
-body[data-page="promo-admin"] .promo-table-tools select {
-  padding: 13px 14px;
-  border-radius: 16px;
-}
-
-body[data-page="promo-admin"] .promo-form textarea {
-  min-height: 150px;
-}
-
-body[data-page="promo-admin"] .promo-button {
-  min-height: 44px;
-  padding: 0 16px;
-  font-size: 0.96rem;
+  font-size: 0.9rem;
 }
 
 body[data-page="promo-admin"] .promo-table th,
