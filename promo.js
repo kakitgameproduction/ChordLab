@@ -74,8 +74,10 @@ const API_BASE =
     const codeMeta = document.getElementById("claimed-meta");
     const groupLabel = document.getElementById("group-status-value");
     const remainingLabel = document.getElementById("remaining-status-value");
+    let inviteVerified = false;
 
     function setInviteAccepted(isAccepted) {
+      inviteVerified = isAccepted;
       emailRow.classList.toggle("promo-hidden", !isAccepted);
       submitButton.classList.toggle("promo-hidden", !isAccepted);
       statusButton.classList.toggle("promo-hidden", isAccepted);
@@ -115,6 +117,13 @@ const API_BASE =
     }
 
     statusButton.addEventListener("click", checkInvite);
+    inviteCode.addEventListener("input", () => {
+      setInviteAccepted(false);
+      groupLabel.textContent = "Not verified";
+      remainingLabel.textContent = "0";
+      successCard.hidden = true;
+      setMessage(statusMessage, "Enter your invite code to check access.", "muted");
+    });
     inviteCode.addEventListener("blur", () => {
       if (inviteCode.value.trim()) {
         checkInvite();
@@ -129,6 +138,10 @@ const API_BASE =
       const emailValue = email.value.trim().toLowerCase();
       if (!inviteValue) {
         setMessage(statusMessage, "Invite code is required.", "error");
+        return;
+      }
+      if (!inviteVerified) {
+        setMessage(statusMessage, "Please check a valid invite code first.", "error");
         return;
       }
       if (!isValidEmail(emailValue)) {
@@ -155,6 +168,11 @@ const API_BASE =
         successCard.hidden = false;
         setMessage(statusMessage, "Your code is ready.", "success");
       } catch (error) {
+        if (error.message === "Invite code is not valid.") {
+          setInviteAccepted(false);
+          groupLabel.textContent = "Not verified";
+          remainingLabel.textContent = "0";
+        }
         setMessage(statusMessage, error.message, "error");
       } finally {
         submitButton.disabled = false;
