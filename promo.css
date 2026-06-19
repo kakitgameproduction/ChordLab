@@ -339,6 +339,10 @@ body[data-page="promo-admin"] .promo-stack {
   gap: 14px;
 }
 
+body[data-page="promo-admin"] #admin-login-section .promo-form {
+  width: min(560px, 100%);
+}
+
 body[data-page="promo-admin"] .promo-form label,
 body[data-page="promo-admin"] .promo-table-tools label {
   font-size: 0.9rem;
