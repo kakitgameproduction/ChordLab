@@ -251,9 +251,19 @@ const API_BASE =
           <td>${group.total_count}</td>
           <td>${group.last_imported_at || "-"}</td>
           <td>
-            <div class="promo-toolbar">
-              <button class="promo-button promo-button-secondary" data-group-invite="${group.id}" data-group-name="${escapeHtml(group.name)}">Update Invite</button>
-              <button class="promo-button promo-button-secondary" data-group-toggle="${group.id}" data-active="${group.is_active ? "1" : "0"}">${group.is_active ? "Disable" : "Enable"}</button>
+            <div class="promo-group-invite-editor">
+              <input
+                class="promo-group-invite-input"
+                type="text"
+                placeholder="new invite code"
+                data-group-invite-input="${group.id}"
+                aria-label="New invite code for ${escapeHtml(group.name)}"
+              />
+              <div class="promo-toolbar">
+                <button class="promo-button promo-button-secondary" data-group-invite-save="${group.id}" data-group-name="${escapeHtml(group.name)}">Save Invite</button>
+                <button class="promo-button promo-button-secondary" data-group-toggle="${group.id}" data-active="${group.is_active ? "1" : "0"}">${group.is_active ? "Disable" : "Enable"}</button>
+              </div>
+              <span class="promo-field-hint promo-group-invite-note" data-group-invite-note="${group.id}"></span>
             </div>
           </td>
         `;
@@ -279,18 +289,17 @@ const API_BASE =
         });
       });
 
-      groupsTableBody.querySelectorAll("[data-group-invite]").forEach((button) => {
+      groupsTableBody.querySelectorAll("[data-group-invite-save]").forEach((button) => {
         button.addEventListener("click", async () => {
-          const groupId = button.getAttribute("data-group-invite");
+          const groupId = button.getAttribute("data-group-invite-save");
           const groupName = button.getAttribute("data-group-name") || "this group";
-          const inviteCode = window.prompt(`Enter a new invite code for ${groupName}:`, "");
-          if (inviteCode === null) {
-            return;
-          }
-
-          const nextInviteCode = inviteCode.trim();
+          const input = groupsTableBody.querySelector(`[data-group-invite-input="${groupId}"]`);
+          const note = groupsTableBody.querySelector(`[data-group-invite-note="${groupId}"]`);
+          const nextInviteCode = String(input?.value || "").trim();
           if (!nextInviteCode) {
-            setMessage(createGroupMessage, "Invite code update was cancelled because the new code was empty.", "error");
+            if (note) {
+              note.textContent = "Enter a new invite code first.";
+            }
             return;
           }
 
@@ -300,9 +309,17 @@ const API_BASE =
               method: "PATCH",
               body: JSON.stringify({ inviteCode: nextInviteCode }),
             });
+            if (input) {
+              input.value = "";
+            }
+            if (note) {
+              note.textContent = `Saved once: ${nextInviteCode}`;
+            }
             setMessage(createGroupMessage, `Invite code updated for ${groupName}.`, "success");
-            await refreshDashboard();
           } catch (error) {
+            if (note) {
+              note.textContent = error.message;
+            }
             setMessage(createGroupMessage, error.message, "error");
           } finally {
             button.disabled = false;
