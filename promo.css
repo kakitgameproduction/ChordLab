@@ -54,7 +54,7 @@
 }
 
 .promo-login-card h1 {
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
   max-width: none;
   white-space: nowrap;
 }
@@ -269,7 +269,7 @@
 }
 
 .promo-login-shell {
-  width: min(560px, 100%);
+  width: min(860px, 100%);
   margin: 0 auto;
   padding-top: 20px;
 }
@@ -277,6 +277,111 @@
 .promo-admin-shell {
   display: grid;
   gap: 24px;
+}
+
+body[data-page="promo-admin"] .promo-main {
+  width: min(1080px, calc(100% - 40px));
+  padding: 28px 0 60px;
+}
+
+body[data-page="promo-admin"] .promo-admin-shell > *,
+body[data-page="promo-admin"] .promo-admin-grid > *,
+body[data-page="promo-admin"] .promo-admin-summary > * {
+  min-width: 0;
+}
+
+body[data-page="promo-admin"] .promo-hero,
+body[data-page="promo-admin"] .promo-panel,
+body[data-page="promo-admin"] .promo-table-card {
+  overflow: hidden;
+}
+
+body[data-page="promo-admin"] .promo-hero {
+  gap: 14px;
+  padding: 28px;
+}
+
+body[data-page="promo-admin"] .promo-hero h1 {
+  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  white-space: normal;
+  max-width: 12ch;
+}
+
+body[data-page="promo-admin"] .promo-lead {
+  width: min(620px, 100%);
+  font-size: 0.98rem;
+}
+
+body[data-page="promo-admin"] .promo-panel,
+body[data-page="promo-admin"] .promo-table-card {
+  padding: 22px;
+}
+
+body[data-page="promo-admin"] .promo-panel h2,
+body[data-page="promo-admin"] .promo-table-card h2 {
+  font-size: clamp(1.05rem, 2.1vw, 1.6rem);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+body[data-page="promo-admin"] .promo-summary-card,
+body[data-page="promo-admin"] .promo-stat-card {
+  padding: 16px 16px 14px;
+}
+
+body[data-page="promo-admin"] .promo-summary-value {
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+}
+
+body[data-page="promo-admin"] .promo-admin-topbar {
+  padding: 14px 18px;
+}
+
+body[data-page="promo-admin"] .promo-admin-topbar-copy strong {
+  font-size: 0.95rem;
+}
+
+body[data-page="promo-admin"] .promo-form,
+body[data-page="promo-admin"] .promo-stack {
+  gap: 14px;
+}
+
+body[data-page="promo-admin"] .promo-form label,
+body[data-page="promo-admin"] .promo-table-tools label {
+  font-size: 0.88rem;
+}
+
+body[data-page="promo-admin"] .promo-form input,
+body[data-page="promo-admin"] .promo-form textarea,
+body[data-page="promo-admin"] .promo-form select,
+body[data-page="promo-admin"] .promo-table-tools input,
+body[data-page="promo-admin"] .promo-table-tools select {
+  padding: 13px 14px;
+  border-radius: 16px;
+}
+
+body[data-page="promo-admin"] .promo-form textarea {
+  min-height: 150px;
+}
+
+body[data-page="promo-admin"] .promo-button {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 0.96rem;
+}
+
+body[data-page="promo-admin"] .promo-table th,
+body[data-page="promo-admin"] .promo-table td {
+  padding: 12px 10px;
+}
+
+body[data-page="promo-admin"] .promo-table th {
+  font-size: 0.78rem;
+}
+
+body[data-page="promo-admin"] .promo-table td,
+body[data-page="promo-admin"] .promo-table code {
+  font-size: 0.88rem;
 }
 
 .promo-admin-topbar {
@@ -415,6 +520,16 @@
   }
 }
 
+@media (max-width: 1280px) {
+  body[data-page="promo-admin"] .promo-admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="promo-admin"] .promo-admin-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .promo-main,
   .site-header,
@@ -443,5 +558,9 @@
 
   .promo-button {
     width: 100%;
+  }
+
+  body[data-page="promo-admin"] .promo-admin-summary {
+    grid-template-columns: 1fr;
   }
 }
