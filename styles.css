@@ -709,6 +709,12 @@ main {
   gap: 22px;
 }
 
+.stacked-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
 .faq-block {
   background:
     linear-gradient(180deg, rgba(8, 13, 24, 0.86), rgba(11, 18, 33, 0.9)),
