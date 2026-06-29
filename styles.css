@@ -715,6 +715,33 @@ main {
   gap: 22px;
 }
 
+#top > .stacked-section {
+  padding: 0;
+  margin: 0 auto 30px;
+  gap: 30px;
+}
+
+#top > .stacked-section:first-of-type {
+  margin-top: 40px;
+}
+
+#top > .stacked-section:last-of-type {
+  margin-bottom: 0;
+}
+
+#top > .stacked-section .eyebrow {
+  margin-bottom: 12px;
+}
+
+#top > .stacked-section .panel-block h2 {
+  line-height: 1.02;
+  margin-bottom: 20px;
+}
+
+#top > .stacked-section .panel-block p + p {
+  margin-top: 14px;
+}
+
 .faq-block {
   background:
     linear-gradient(180deg, rgba(8, 13, 24, 0.86), rgba(11, 18, 33, 0.9)),
