@@ -172,7 +172,9 @@
         <div class="hero-stage" id="stories" aria-label="Chordasy story posters">
           <div class="story-grid hero-story-grid">
             <article class="story-card" data-story-card>
-              <img class="story-desktop-card" src="feature_card_desktop_1.png" alt="Organise Transpose Sync feature card" width="1024" height="500" loading="eager" fetchpriority="high" decoding="sync" />
+              <a class="story-desktop-card-link" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download Chordasy on Google Play">
+                <img class="story-desktop-card" src="feature_card_desktop_1.png" alt="Organise Transpose Sync feature card" width="1024" height="500" loading="eager" fetchpriority="high" decoding="sync" />
+              </a>
               <figure class="story-poster">
                 <img src="store-page-1.png" alt="Chordasy mobile store feature 1" width="900" height="1600" loading="eager" fetchpriority="high" decoding="sync" />
               </figure>
@@ -281,133 +283,158 @@
         </div>
       </section>
 
-      <section id="transpose-demo" class="content-section showcase-section">
-        <figure class="showcase-media">
-          <img src="feature_card_desktop_5.png" alt="Chordasy transpose feature card" width="1024" height="500" loading="lazy" decoding="async" />
-        </figure>
-        <div class="showcase-content">
-          <div class="panel-block">
-            <p class="eyebrow" data-i18n="seoTransposeEyebrow">Free PDF transpose demo</p>
-            <h2 data-i18n="seoTransposeTitle">Upload a chord chart PDF, change key, and download it again.</h2>
-            <p data-i18n="seoTransposeBody">
-              Use the free online transpose demo to preview your PDF, move the key up or down, and download the updated version before installing the Android app.
-            </p>
-            <ol class="steps">
-              <li data-i18n="seoTransposeStep1">Upload a PDF chord chart from your device.</li>
-              <li data-i18n="seoTransposeStep2">Preview the chart and adjust the key with the transpose controls.</li>
-              <li data-i18n="seoTransposeStep3">Download the updated PDF and keep moving with rehearsal or service prep.</li>
-            </ol>
-            <button class="button primary" type="button" data-transpose-open data-i18n="seoTransposeAction">Try free PDF transpose</button>
-          </div>
+      <section id="help" class="content-section mid-section">
+        <div class="section-heading mid-heading">
+          <h2 class="mid-title">Organizing Chart</h2>
+        </div>
+        <div class="mid-card-grid mid-card-grid-three">
+          <article class="mid-card">
+            <figure class="mid-card-frame">
+              <img class="mid-card-image" src="mid-cloud-library.png" alt="Connect your cloud library feature card" width="824" height="824" loading="lazy" decoding="async" />
+            </figure>
+            <h3 class="mid-card-title" data-i18n="story5Title">Connect your cloud library</h3>
+            <p class="mid-card-body" data-i18n="story5Body">Link Dropbox or Google Drive from inside the app, choose your chart folder, and refresh the library without leaving your workflow.</p>
+          </article>
 
-          <div class="panel-block faq-block showcase-aside">
+          <article class="mid-card">
+            <figure class="mid-card-frame">
+              <img class="mid-card-image" src="mid-setlist.png" alt="Build setlists fast feature card" width="798" height="792" loading="lazy" decoding="async" />
+            </figure>
+            <h3 class="mid-card-title" data-i18n="story2Title">Build setlists fast</h3>
+            <p class="mid-card-body" data-i18n="story2Body">Create the running order, drag songs into place, and keep the whole set ready for rehearsal, worship, or live performance.</p>
+          </article>
+
+          <article class="mid-card">
+            <figure class="mid-card-frame">
+              <img class="mid-card-image" src="mid-browse-library.png" alt="Browse your library feature card" width="800" height="800" loading="lazy" decoding="async" />
+            </figure>
+            <h3 class="mid-card-title">Browse Your Library</h3>
+            <p class="mid-card-body">Search local charts, switch between local and cloud sources, and open the right song quickly from a tablet-friendly library view.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="transpose-demo" class="content-section mid-section mid-split">
+        <div class="mid-split-copy">
+          <h2 class="mid-title" data-i18n="seoIntentTitle">Online PDF chord chart transpose, then full Android tablet workflow.</h2>
+          <p class="mid-split-body" data-i18n="seoIntentBody1">If you are looking for a way to transpose a chord chart PDF online, Chordasy gives you a free demo on the website and a complete Android tablet app for library management, setlists, cloud sync, and live annotation.</p>
+          <p class="mid-split-body" data-i18n="seoIntentBody2">It is designed for worship teams, church musicians, band leaders, and rehearsal prep where songs need to be searchable, easy to reorder, and ready to share across the same local network.</p>
+          <p class="mid-split-body" data-i18n="seoIntentBody3">After you test the free PDF transpose flow, you can move into the app for faster song browsing, setlist building, Dropbox or Google Drive libraries, and live performance controls on Android tablets.</p>
+          <div class="mid-transpose-callout">
+            <button type="button" class="nav-link-button nav-link-button-accent mid-transpose-button" data-transpose-open data-i18n="navTranspose">Transpose</button>
+            <img class="mid-transpose-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
+          </div>
+        </div>
+        <figure class="mid-split-media">
+          <img src="mid-transpose.png" alt="Chordasy transpose feature card" width="1104" height="1084" loading="lazy" decoding="async" />
+        </figure>
+      </section>
+
+      <section id="stories" class="content-section mid-section">
+        <div class="section-heading mid-heading">
+          <h2 class="mid-title">Sharing Chart, Messages and Set-list</h2>
+        </div>
+        <div class="mid-card-grid mid-card-grid-two">
+          <article class="mid-card">
+            <figure class="mid-card-frame mid-card-frame-share">
+              <img class="mid-card-image mid-card-image-share" src="mid-share-band.png" alt="Share charts with the band feature card" width="1358" height="748" loading="lazy" decoding="async" />
+            </figure>
+            <h3 class="mid-card-title">Share Charts With The Band</h3>
+            <p class="mid-card-body">Send charts, messages, and quick notes to connected members on the same network so everyone can rehearse from the same set.</p>
+          </article>
+
+          <article class="mid-card">
+            <figure class="mid-card-frame mid-card-frame-share">
+              <img class="mid-card-image mid-card-image-share" src="mid-live-stage.png" alt="Use it live on stage feature card" width="1368" height="738" loading="lazy" decoding="async" />
+            </figure>
+            <h3 class="mid-card-title">Stay Ready For Live Performance</h3>
+            <p class="mid-card-body">Keep charts readable, switch tools quickly, and stay inside the performance flow while rehearsing, leading worship, or playing live.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section seo-footer-stack">
+        <div class="panel-block faq-block">
+          <div class="seo-footer-heading">
             <p class="eyebrow" data-i18n="seoWhyEyebrow">Why people use it</p>
-            <h3 data-i18n="seoWhyTitle">Made for worship teams, band leaders, and rehearsal prep.</h3>
-            <div class="faq-mini">
-              <p><strong data-i18n="seoWhyPoint1Title">Test the transpose workflow first</strong></p>
+            <h2 data-i18n="seoWhyTitle">Made for worship teams, band leaders, and rehearsal prep.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoWhyPoint1Title">Test the transpose workflow first</h3>
               <p data-i18n="seoWhyPoint1Body">Visitors can try the PDF transpose experience on the website before downloading Chordasy for Android tablets.</p>
-              <p><strong data-i18n="seoWhyPoint2Title">Useful for real chord charts</strong></p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoWhyPoint2Title">Useful for real chord charts</h3>
               <p data-i18n="seoWhyPoint2Body">Chordasy is built for chord chart libraries, live setlists, cloud folders, and on-stage annotation, not just one-off key changes.</p>
-              <p><strong data-i18n="seoWhyPoint3Title">Works with your rehearsal flow</strong></p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoWhyPoint3Title">Works with your rehearsal flow</h3>
               <p data-i18n="seoWhyPoint3Body">After trying the demo, you can move into the app for setlists, Band Mode sharing, and full tablet performance controls.</p>
-            </div>
+            </article>
           </div>
         </div>
-      </section>
 
-      <section id="help" class="content-section showcase-section showcase-section-reverse">
-        <figure class="showcase-media">
-          <img src="feature_card_desktop_3.png" alt="Chordasy setlist feature card" width="1024" height="500" loading="lazy" decoding="async" />
-        </figure>
-        <div class="showcase-content">
-          <div class="panel-block">
-            <p class="eyebrow" data-i18n="helpEyebrow">Quick start</p>
-            <h2 data-i18n="helpTitle">Start simple, then scale up.</h2>
-            <ol class="steps">
-              <li data-i18n="helpStep1">Open Library and import PDF, JPG, JPEG, or PNG charts, or connect Dropbox or Google Drive.</li>
-              <li data-i18n="helpStep2">Add songs into a setlist and drag to reorder the flow.</li>
-              <li data-i18n="helpStep3">Open the chart, transpose if needed, and switch into Live Mode for larger controls.</li>
-              <li data-i18n="helpStep4">Use annotation tools to mark reminders, cues, and changes directly on the chart.</li>
-              <li data-i18n="helpStep5">Turn on Band Mode, connect members on the same network, and send charts or messages when needed.</li>
-            </ol>
-          </div>
-
-          <div class="panel-block faq-block showcase-aside">
-            <p class="eyebrow" data-i18n="faqEyebrow">FAQ</p>
-            <h3 data-i18n="faqTitle">Answers that matter on rehearsal day.</h3>
-            <div class="faq-mini">
-              <p><strong data-i18n="faq1Q">Do all tablets need the same Dropbox or Google account?</strong></p>
-              <p data-i18n="faq1A">No. If the receiving tablet does not already have the chart, Chordasy can receive the sent file and store it locally.</p>
-              <p><strong data-i18n="faq2Q">Does Band Mode use the internet?</strong></p>
-              <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a Chordasy cloud server.</p>
-              <p><strong data-i18n="faq3Q">Can I use image charts too?</strong></p>
-              <p data-i18n="faq3A">Yes. Chordasy supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="band-mode" class="content-section showcase-section">
-        <figure class="showcase-media">
-          <img src="feature_card_desktop_6.png" alt="Chordasy band mode feature card" width="1024" height="500" loading="lazy" decoding="async" />
-        </figure>
-        <div class="showcase-content">
-          <div class="panel-block">
-            <p class="eyebrow" data-i18n="bandModeEyebrow">Band Mode</p>
-            <h2 data-i18n="bandModeTitle">Share charts, files, and short messages with the band on the same local network.</h2>
-            <p data-i18n="bandModeBody1">
-              Band Mode is one of the core Chordasy workflows. It lets you connect nearby devices, see who is online, and send charts even when the receiving member does not already have that song in their own library.
-            </p>
-            <p data-i18n="bandModeBody2">
-              This is designed for rehearsals, worship teams, and stage prep where the leader needs to pass songs, updates, or quick notes to other members without asking everyone to manage the same cloud account.
-            </p>
-          </div>
-
-          <div class="panel-block faq-block showcase-aside">
-            <p class="eyebrow" data-i18n="bandModeUseEyebrow">Why it matters</p>
-            <h3 data-i18n="bandModeUseTitle">Built for real rehearsal communication.</h3>
-            <div class="faq-mini">
-              <p><strong data-i18n="bandModePoint1Title">Send songs fast</strong></p>
-              <p data-i18n="bandModePoint1Body">Push a chart to connected members during rehearsal so everyone can open the same song quickly.</p>
-              <p><strong data-i18n="bandModePoint2Title">Share more than charts</strong></p>
-              <p data-i18n="bandModePoint2Body">Pass short messages and files when the band needs updates, reminders, or supporting material.</p>
-              <p><strong data-i18n="bandModePoint3Title">No shared login required</strong></p>
-              <p data-i18n="bandModePoint3Body">Members can receive what they need locally without signing into the same Dropbox or Google account.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="online-pdf-transpose" class="content-section showcase-section showcase-section-reverse">
-        <figure class="showcase-media">
-          <img src="feature_card_desktop_2.png" alt="Chordasy cloud library feature card" width="1024" height="500" loading="lazy" decoding="async" />
-        </figure>
-        <div class="showcase-content">
-          <div class="panel-block">
-            <p class="eyebrow" data-i18n="seoIntentEyebrow">Search-friendly overview</p>
-            <h2 data-i18n="seoIntentTitle">Online PDF chord chart transpose, then full Android tablet workflow.</h2>
-            <p data-i18n="seoIntentBody1">
-              If you are looking for a way to transpose a chord chart PDF online, Chordasy gives you a free demo on the website and a complete Android tablet app for library management, setlists, cloud sync, and live annotation.
-            </p>
-            <p data-i18n="seoIntentBody2">
-              It is designed for worship teams, church musicians, band leaders, and rehearsal prep where songs need to be searchable, easy to reorder, and ready to share across the same local network.
-            </p>
-            <p data-i18n="seoIntentBody3">
-              After you test the free PDF transpose flow, you can move into the app for faster song browsing, setlist building, Dropbox or Google Drive libraries, and live performance controls on Android tablets.
-            </p>
-          </div>
-
-          <div class="panel-block faq-block showcase-aside">
+        <div class="panel-block faq-block">
+          <div class="seo-footer-heading">
             <p class="eyebrow" data-i18n="seoFitEyebrow">Best fit</p>
-            <h3 data-i18n="seoFitTitle">Who Chordasy is for.</h3>
-            <div class="faq-mini">
-              <p><strong data-i18n="seoFitPoint1Title">Worship teams and church musicians</strong></p>
+            <h2 data-i18n="seoFitTitle">Who Chordasy is for.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoFitPoint1Title">Worship teams and church musicians</h3>
               <p data-i18n="seoFitPoint1Body">Keep chord charts organized by song title, key, and setlist order, then send charts to connected members during rehearsal or service prep.</p>
-              <p><strong data-i18n="seoFitPoint2Title">Band leaders managing cloud libraries</strong></p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoFitPoint2Title">Band leaders managing cloud libraries</h3>
               <p data-i18n="seoFitPoint2Body">Connect Dropbox or Google Drive folders, refresh the library, and keep local copies available when songs need to be opened quickly.</p>
-              <p><strong data-i18n="seoFitPoint3Title">Musicians who need a free transpose starting point</strong></p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="seoFitPoint3Title">Musicians who need a free transpose starting point</h3>
               <p data-i18n="seoFitPoint3Body">Use the website to try a free online PDF transpose first, then decide if the full Android tablet workflow matches your weekly music setup.</p>
-            </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel-block faq-block">
+          <div class="seo-footer-heading">
+            <p class="eyebrow" data-i18n="bandModeUseEyebrow">Why it matters</p>
+            <h2 data-i18n="bandModeUseTitle">Built for real rehearsal communication.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="seo-mini-card">
+              <h3 data-i18n="bandModePoint1Title">Send songs fast</h3>
+              <p data-i18n="bandModePoint1Body">Push a chart to connected members during rehearsal so everyone can open the same song quickly.</p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="bandModePoint2Title">Share more than charts</h3>
+              <p data-i18n="bandModePoint2Body">Pass short messages and files when the band needs updates, reminders, or supporting material.</p>
+            </article>
+            <article class="seo-mini-card">
+              <h3 data-i18n="bandModePoint3Title">No shared login required</h3>
+              <p data-i18n="bandModePoint3Body">Members can receive what they need locally without signing into the same Dropbox or Google account.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel-block faq-block">
+          <div class="seo-footer-heading">
+            <p class="eyebrow" data-i18n="faqEyebrow">FAQ</p>
+            <h2 data-i18n="faqTitle">Answers that matter on rehearsal day.</h2>
+          </div>
+          <div class="faq-grid">
+            <article>
+              <h3 data-i18n="faq1Q">Do all tablets need the same Dropbox or Google account?</h3>
+              <p data-i18n="faq1A">No. If the receiving tablet does not already have the chart, Chordasy can receive the sent file and store it locally.</p>
+            </article>
+            <article>
+              <h3 data-i18n="faq2Q">Does Band Mode use the internet?</h3>
+              <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a Chordasy cloud server.</p>
+            </article>
+            <article>
+              <h3 data-i18n="faq3Q">Can I use image charts too?</h3>
+              <p data-i18n="faq3A">Yes. Chordasy supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.</p>
+            </article>
           </div>
         </div>
       </section>
