@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chordasy Docs | User Manual</title>
+    <meta name="description" content="Read the Chordasy user manual online or download the PDF for Android tablet setup, cloud libraries, setlists, Band Mode, transpose, and live chart workflows." />
+    <link rel="canonical" href="https://chordasy.com/docs.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260703-docs-1" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://chordasy.com/docs.html#user-manual",
+        "headline": "Chordasy User Manual",
+        "description": "Chordasy user manual for Android tablet setup, cloud libraries, setlists, Band Mode, transpose, and live chart workflows.",
+        "url": "https://chordasy.com/docs.html",
+        "inLanguage": ["en", "zh-Hant"],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Chordasy",
+          "url": "https://chordasy.com/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-play-badge play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <a href="index.html#help" data-i18n="navFeatures">Quick Start</a>
+          <a href="docs.html" data-i18n="navDocs">Docs</a>
+          <a href="demos.html" data-i18n="navDemos">Demos</a>
+          <div class="transpose-nav-callout">
+            <a href="index.html#transpose-demo" class="nav-link-button nav-link-button-accent" data-i18n="navTranspose">Transpose</a>
+            <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
+          </div>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="content-section manual-hero standalone-policy">
+        <div class="manual-card">
+          <div class="section-heading manual-heading">
+            <p class="eyebrow" data-i18n="docsEyebrow">Docs</p>
+            <h1 data-i18n="docsTitle">Chordasy User Manual</h1>
+            <p class="lead" data-i18n="docsLead">Read the manual in your browser with the PDF menu, search, zoom, and page controls, or download the PDF for offline use.</p>
+          </div>
+
+          <div class="download-actions manual-actions">
+            <a class="button ghost" href="Chordasy_User_Manual_v1.pdf" target="_blank" rel="noopener noreferrer" data-i18n="docsOpenPdf">Open PDF in new tab</a>
+            <a class="button primary" href="Chordasy_User_Manual_v1.pdf" download data-i18n="docsDownloadPdf">Download PDF</a>
+          </div>
+
+          <div class="manual-version-card">
+            <span data-i18n="docsCurrentVersion">Current version</span>
+            <strong>Chordasy_User_Manual_v1.pdf</strong>
+          </div>
+
+          <div class="manual-viewer" aria-label="Chordasy user manual PDF viewer">
+            <iframe src="Chordasy_User_Manual_v1.pdf#view=FitH" title="Chordasy User Manual PDF"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-i18n="footerCopy">© 2026 Chordasy</span>
+      <a href="index.html" data-i18n="footerHome">Home</a>
+      <a href="download.html" data-i18n="footerDownload">Download</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="footerTerms">Terms of Service</a>
+    </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Quick Start",
+          navDocs: "Docs",
+          navDemos: "Demos",
+          navTranspose: "Transpose",
+          docsEyebrow: "Docs",
+          docsTitle: "Chordasy User Manual",
+          docsLead: "Read the manual in your browser with the PDF menu, search, zoom, and page controls, or download the PDF for offline use.",
+          docsOpenPdf: "Open PDF in new tab",
+          docsDownloadPdf: "Download PDF",
+          docsCurrentVersion: "Current version",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "Home",
+          footerDownload: "Download",
+          footerPrivacy: "Privacy Policy",
+          footerTerms: "Terms of Service"
+        },
+        zh: {
+          navFeatures: "快速開始",
+          navDocs: "Docs",
+          navDemos: "示範影片",
+          navTranspose: "Transpose",
+          docsEyebrow: "文件",
+          docsTitle: "Chordasy 使用手冊",
+          docsLead: "直接喺瀏覽器閱讀 PDF，使用內置目錄、搜尋、縮放同頁面控制；亦可以下載 PDF 離線查看。",
+          docsOpenPdf: "新分頁開啟 PDF",
+          docsDownloadPdf: "下載 PDF",
+          docsCurrentVersion: "目前版本",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "主頁",
+          footerDownload: "下載",
+          footerPrivacy: "私隱政策",
+          footerTerms: "服務條款"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
+  </body>
+</html>
