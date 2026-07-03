@@ -291,12 +291,13 @@ body[data-page="promo-admin"] .promo-main {
 }
 
 body[data-page="promo-admin"] #admin-login-section {
-  width: min(700px, 100%);
+  width: min(520px, 100%);
 }
 
 body[data-page="promo-admin"] #admin-login-section .promo-login-card {
-  max-width: 700px;
+  max-width: 520px;
   margin: 0 auto;
+  padding: 24px;
 }
 
 body[data-page="promo-admin"] .promo-admin-shell > *,
@@ -350,7 +351,12 @@ body[data-page="promo-admin"] .promo-stack {
 }
 
 body[data-page="promo-admin"] #admin-login-section .promo-form {
-  width: min(560px, 100%);
+  width: min(420px, 100%);
+}
+
+body[data-page="promo-admin"] #admin-login-section .promo-form input {
+  padding: 12px 14px;
+  border-radius: 16px;
 }
 
 body[data-page="promo-admin"] #admin-login-section .promo-login-card h1 {
