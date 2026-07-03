@@ -187,6 +187,8 @@ const API_BASE =
     const loginSection = document.getElementById("admin-login-section");
     const appSection = document.getElementById("admin-app");
     const loginMessage = document.getElementById("admin-login-message");
+    const usernameInput = document.getElementById("admin-username");
+    const passwordInput = document.getElementById("admin-password");
     const createGroupForm = document.getElementById("create-group-form");
     const importForm = document.getElementById("import-codes-form");
     const blacklistForm = document.getElementById("blacklist-form");
@@ -223,9 +225,22 @@ const API_BASE =
     let adminAuth = sessionStorage.getItem("promo_admin_auth") || "";
     let cachedGroups = [];
 
+    function clearAdminLoginFields() {
+      if (usernameInput) {
+        usernameInput.value = "";
+      }
+      if (passwordInput) {
+        passwordInput.value = "";
+      }
+      loginForm.reset();
+    }
+
     function setLoggedIn(isLoggedIn) {
       loginSection.classList.toggle("promo-hidden", isLoggedIn);
       appSection.classList.toggle("promo-hidden", !isLoggedIn);
+      if (!isLoggedIn) {
+        clearAdminLoginFields();
+      }
     }
 
     function groupOptionPlaceholder(select) {
@@ -498,8 +513,8 @@ const API_BASE =
 
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const username = document.getElementById("admin-username").value.trim();
-      const password = document.getElementById("admin-password").value;
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
       if (!username || !password) {
         setMessage(loginMessage, "Enter username and password.", "error");
         return;
@@ -510,6 +525,7 @@ const API_BASE =
       try {
         await refreshDashboard();
         setLoggedIn(true);
+        clearAdminLoginFields();
         setMessage(loginMessage, "", "");
       } catch (error) {
         sessionStorage.removeItem("promo_admin_auth");
@@ -521,7 +537,10 @@ const API_BASE =
     logoutButton.addEventListener("click", () => {
       sessionStorage.removeItem("promo_admin_auth");
       adminAuth = "";
+      clearAdminLoginFields();
       setLoggedIn(false);
+      setMessage(loginMessage, "", "");
+      usernameInput?.focus();
     });
 
     refreshButton.addEventListener("click", async () => {
