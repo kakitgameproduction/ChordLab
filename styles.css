@@ -1118,24 +1118,6 @@ main {
 }
 
 @media (min-width: 1081px) {
-  .manual-page .site-header {
-    padding: 4px 0;
-  }
-
-  .manual-page .brand img {
-    width: min(300px, 22vw);
-    max-height: 96px;
-  }
-
-  .manual-page .nav-links,
-  .manual-page .lang-switch {
-    transform: none;
-  }
-
-  .manual-page .transpose-nav-callout-image {
-    display: none;
-  }
-
   .manual-page main {
     padding-bottom: 16px;
   }
