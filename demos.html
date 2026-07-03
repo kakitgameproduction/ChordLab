@@ -9,21 +9,38 @@
     <link rel="icon" href="chordasy_app_icon.png" />
     <link rel="stylesheet" href="styles.css?v=20260703-demos-1" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "@id": "https://chordasy.com/demos.html#cloud-drive-demo",
-        "name": "Chordasy - Connect to Your Cloud Drive | Dropbox & Google Drive Integration",
-        "description": "A short Chordasy demo showing how to connect Dropbox and Google Drive for cloud chart libraries.",
-        "thumbnailUrl": "https://img.youtube.com/vi/c2kQwyxRVl0/hqdefault.jpg",
-        "embedUrl": "https://www.youtube.com/embed/c2kQwyxRVl0",
-        "uploadDate": "2026-07-03",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Chordasy",
-          "url": "https://chordasy.com/"
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "@id": "https://chordasy.com/demos.html#cloud-drive-demo",
+          "name": "Chordasy - Connect to Your Cloud Drive | Dropbox & Google Drive Integration",
+          "description": "A short Chordasy demo showing how to connect Dropbox and Google Drive for cloud chart libraries.",
+          "thumbnailUrl": "https://img.youtube.com/vi/c2kQwyxRVl0/hqdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/c2kQwyxRVl0",
+          "uploadDate": "2026-07-03",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Chordasy",
+            "url": "https://chordasy.com/"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "@id": "https://chordasy.com/demos.html#second-workflow-demo",
+          "name": "Chordasy Demo 2 | App Workflow Walkthrough",
+          "description": "A short Chordasy demo showing another app workflow for users getting started.",
+          "thumbnailUrl": "https://img.youtube.com/vi/OOKvauPpvs0/hqdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/OOKvauPpvs0",
+          "uploadDate": "2026-07-03",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Chordasy",
+            "url": "https://chordasy.com/"
+          }
         }
-      }
+      ]
     </script>
   </head>
   <body>
@@ -73,6 +90,7 @@
               <p class="eyebrow" data-i18n="cloudDemoEyebrow">Cloud library</p>
               <h2 data-i18n="cloudDemoTitle">Connect to Your Cloud Drive</h2>
               <p data-i18n="cloudDemoBody">See how Chordasy connects Dropbox and Google Drive so your PDF, JPG, and PNG chord charts can become a browsable cloud library.</p>
+              <a class="demo-video-link" href="https://www.youtube.com/shorts/c2kQwyxRVl0" target="_blank" rel="noopener noreferrer" data-i18n="cloudDemoFallback">Watch on YouTube</a>
             </div>
           </article>
 
@@ -81,11 +99,23 @@
             <h2 data-i18n="demoLibraryTitle">New demos will appear here as the series grows.</h2>
           </div>
 
-          <div class="demo-card-grid" aria-label="Upcoming demo videos">
-            <article class="demo-placeholder-card">
-              <p class="eyebrow" data-i18n="setlistDemoEyebrow">Setlists</p>
-              <h3 data-i18n="setlistDemoTitle">Build and reorder a setlist</h3>
-              <p data-i18n="setlistDemoBody">A short workflow video for creating a set, adding songs, and preparing the running order.</p>
+          <div class="demo-card-grid" aria-label="Demo videos">
+            <article class="demo-mini-video-card">
+              <div class="demo-video-frame demo-video-frame-short">
+                <iframe
+                  src="https://www.youtube.com/embed/OOKvauPpvs0?rel=0&playsinline=1"
+                  title="Chordasy Demo 2 | App Workflow Walkthrough"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="demo-mini-copy">
+                <p class="eyebrow" data-i18n="secondDemoEyebrow">Workflow demo</p>
+                <h3 data-i18n="secondDemoTitle">Chordasy Demo 2</h3>
+                <p data-i18n="secondDemoBody">A second short walkthrough in the Chordasy demo series. We can rename this card once the final video title is locked in.</p>
+                <a class="demo-video-link" href="https://youtube.com/shorts/OOKvauPpvs0?feature=share" target="_blank" rel="noopener noreferrer" data-i18n="secondDemoFallback">Watch on YouTube</a>
+              </div>
             </article>
             <article class="demo-placeholder-card">
               <p class="eyebrow" data-i18n="liveDemoEyebrow">Live workflow</p>
@@ -118,11 +148,14 @@
           cloudDemoTitle: "Connect to Your Cloud Drive",
           cloudDemoBody:
             "See how Chordasy connects Dropbox and Google Drive so your PDF, JPG, and PNG chord charts can become a browsable cloud library.",
+          cloudDemoFallback: "Watch on YouTube",
           demoLibraryEyebrow: "More walkthroughs",
           demoLibraryTitle: "New demos will appear here as the series grows.",
-          setlistDemoEyebrow: "Setlists",
-          setlistDemoTitle: "Build and reorder a setlist",
-          setlistDemoBody: "A short workflow video for creating a set, adding songs, and preparing the running order.",
+          secondDemoEyebrow: "Workflow demo",
+          secondDemoTitle: "Chordasy Demo 2",
+          secondDemoBody:
+            "A second short walkthrough in the Chordasy demo series. We can rename this card once the final video title is locked in.",
+          secondDemoFallback: "Watch on YouTube",
           liveDemoEyebrow: "Live workflow",
           liveDemoTitle: "Annotate and use charts live",
           liveDemoBody: "A demo slot for showing annotation tools, Live Mode, transpose, and rehearsal-ready controls.",
@@ -143,11 +176,13 @@
           cloudDemoTitle: "連接你的雲端硬碟",
           cloudDemoBody:
             "看看 Chordasy 如何連接 Dropbox 和 Google Drive，將你的 PDF、JPG、PNG 和弦樂譜整理成可瀏覽的雲端資料庫。",
+          cloudDemoFallback: "在 YouTube 觀看",
           demoLibraryEyebrow: "更多示範",
           demoLibraryTitle: "之後新增的示範影片會放在這裡。",
-          setlistDemoEyebrow: "Setlist",
-          setlistDemoTitle: "建立及排序 setlist",
-          setlistDemoBody: "之後可以用短片示範如何建立 set、加入歌曲，並整理演出次序。",
+          secondDemoEyebrow: "操作示範",
+          secondDemoTitle: "Chordasy 示範 2",
+          secondDemoBody: "Chordasy 示範系列的第二條短片。等影片標題定好後，我們可以再改成更精準的名稱。",
+          secondDemoFallback: "在 YouTube 觀看",
           liveDemoEyebrow: "現場流程",
           liveDemoTitle: "現場標記及使用樂譜",
           liveDemoBody: "這個位置可用來示範 annotation、Live Mode、Transpose 以及排練常用控制。",
