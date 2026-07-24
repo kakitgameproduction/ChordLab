@@ -1417,9 +1417,8 @@ main {
 .transpose-tool-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 18%, rgba(68, 224, 255, 0.12), transparent 28rem),
-    radial-gradient(circle at 88% 10%, rgba(196, 255, 76, 0.08), transparent 24rem),
-    #09072f;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.26)),
+    linear-gradient(180deg, var(--bg-top) 0%, #2008ae 42%, #1b0894 74%, var(--bg-bottom) 100%);
 }
 
 .visually-hidden {
