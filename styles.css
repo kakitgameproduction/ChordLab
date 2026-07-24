@@ -1414,6 +1414,180 @@ main {
   padding: 28px;
 }
 
+.transpose-tool-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(68, 224, 255, 0.12), transparent 28rem),
+    radial-gradient(circle at 88% 10%, rgba(196, 255, 76, 0.08), transparent 24rem),
+    #09072f;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.transpose-tool-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 52px 0 72px;
+}
+
+.transpose-tool-hero {
+  max-width: 930px;
+  margin-bottom: 30px;
+}
+
+.transpose-tool-hero h1 {
+  max-width: 920px;
+  margin: 10px 0 16px;
+  color: #fff;
+  font-size: clamp(2.55rem, 5.2vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.transpose-tool-lead {
+  max-width: 780px;
+  margin: 0;
+  color: #bcc8e0;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.transpose-tool-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 22px 0 0;
+  padding: 0;
+  color: #e8eefb;
+  list-style: none;
+}
+
+.transpose-tool-trust li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: #c4ff4c;
+  font-weight: 800;
+}
+
+.transpose-tool-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(142, 161, 194, 0.3);
+  border-radius: 32px;
+  background: rgba(7, 13, 28, 0.94);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.transpose-tool-shell .transpose-modal-layout {
+  min-height: 660px;
+}
+
+.transpose-tool-intro {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.transpose-tool-step {
+  padding: 24px;
+  border: 1px solid rgba(142, 161, 194, 0.22);
+  border-radius: 22px;
+  background: rgba(12, 19, 39, 0.72);
+}
+
+.transpose-tool-step strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.transpose-tool-step span {
+  color: #aebbd3;
+  line-height: 1.55;
+}
+
+.transpose-tool-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 30px;
+  padding: 28px 30px;
+  border: 1px solid rgba(196, 255, 76, 0.22);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(196, 255, 76, 0.1), rgba(68, 224, 255, 0.07));
+}
+
+.transpose-tool-cta h2 {
+  margin: 0 0 7px;
+  color: #fff;
+}
+
+.transpose-tool-cta p {
+  margin: 0;
+  color: #b8c5dc;
+}
+
+.transpose-tool-downloads {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.transpose-tool-downloads .play-badge-button {
+  width: 180px;
+}
+
+@media (max-width: 760px) {
+  .transpose-tool-main {
+    padding: 30px 0 48px;
+  }
+
+  .transpose-tool-shell {
+    border-radius: 22px;
+  }
+
+  .transpose-tool-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .transpose-tool-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .transpose-tool-downloads {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .transpose-tool-main {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .transpose-tool-downloads {
+    width: 100%;
+  }
+
+  .transpose-tool-downloads .play-badge-button {
+    width: min(180px, calc(50% - 6px));
+  }
+}
+
 .transpose-modal-backdrop {
   position: absolute;
   inset: 0;

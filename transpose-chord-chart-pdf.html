@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Free Chord Chart PDF Transposer – Change Keys Online | Chordasy</title>
+    <meta
+      name="description"
+      content="Upload a chord chart PDF, transpose its chords to a new key, preview the result, and download the updated PDF free. No account required."
+    />
+    <meta property="og:title" content="Free Chord Chart PDF Transposer | Chordasy" />
+    <meta
+      property="og:description"
+      content="Change the key of a chord chart PDF online. Upload, transpose, preview, and download for free."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chordasy.com/transpose-chord-chart-pdf.html" />
+    <meta property="og:image" content="https://chordasy.com/mid-transpose.png" />
+    <link rel="canonical" href="https://chordasy.com/transpose-chord-chart-pdf.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260724-transpose-page-1" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Chordasy Free Chord Chart PDF Transposer",
+        "url": "https://chordasy.com/transpose-chord-chart-pdf.html",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and a modern web browser",
+        "description": "A free online tool for uploading a chord chart PDF, changing its key, previewing the result, and downloading the transposed PDF.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Chordasy",
+          "url": "https://chordasy.com/"
+        }
+      }
+    </script>
+  </head>
+  <body class="transpose-tool-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="docs.html">Docs</a>
+          <a href="demos.html">Demos</a>
+          <a class="nav-link-button nav-link-button-accent" href="transpose-chord-chart-pdf.html" aria-current="page">Transpose</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="transpose-tool-main">
+      <section class="transpose-tool-hero">
+        <p class="eyebrow">Free online tool</p>
+        <h1>Transpose a chord chart PDF online.</h1>
+        <p class="transpose-tool-lead">
+          Upload your chord chart, move every detected chord up or down, preview the new key, and download the updated PDF.
+        </p>
+        <ul class="transpose-tool-trust" aria-label="Tool benefits">
+          <li>Free to use</li>
+          <li>No account required</li>
+          <li>Preview before downloading</li>
+        </ul>
+      </section>
+
+      <section class="transpose-tool-shell" aria-labelledby="transpose-tool-title">
+        <h2 id="transpose-tool-title" class="visually-hidden">Chord chart PDF transpose tool</h2>
+        <div class="transpose-modal-layout">
+          <div class="transpose-modal-panel transpose-modal-panel-controls">
+            <div class="transpose-upload-card">
+              <p class="transpose-upload-label">Upload PDF</p>
+              <button class="button primary transpose-upload-button" type="button" id="transpose-upload-trigger">Choose PDF</button>
+              <input id="transpose-upload-input" class="transpose-upload-input" type="file" accept="application/pdf,.pdf" />
+              <p class="transpose-upload-hint">Best for text-based chord charts in PDF format.</p>
+              <p class="transpose-upload-file" id="transpose-upload-file">No PDF selected yet.</p>
+            </div>
+
+            <div class="transpose-demo-bar">
+              <span class="transpose-demo-bar-label">Transpose</span>
+              <div class="transpose-demo-bar-controls">
+                <button class="transpose-step-button" type="button" id="transpose-demo-down" aria-label="Transpose down one semitone">-1</button>
+                <strong class="transpose-demo-value" id="transpose-demo-value" aria-live="polite">+0</strong>
+                <button class="transpose-step-button" type="button" id="transpose-demo-up" aria-label="Transpose up one semitone">+1</button>
+                <button class="transpose-reset-button" type="button" id="transpose-demo-reset">Reset</button>
+              </div>
+            </div>
+
+            <div class="transpose-demo-actions">
+              <a class="button ghost transpose-download-button is-disabled" id="transpose-download-button" href="#" aria-disabled="true">Download PDF</a>
+            </div>
+
+            <p class="transpose-demo-status" id="transpose-demo-status" aria-live="polite">Upload a PDF to start.</p>
+            <div class="transpose-loading hidden" id="transpose-loading" aria-hidden="true">
+              <div class="transpose-loading-track">
+                <div class="transpose-loading-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="transpose-modal-panel transpose-modal-panel-preview">
+            <div class="transpose-preview-frame">
+              <div class="transpose-preview-loading hidden" id="transpose-preview-loading" aria-hidden="true">
+                <div class="transpose-preview-loading-card">
+                  <p class="transpose-preview-loading-label">Preparing preview...</p>
+                  <div class="transpose-loading-track transpose-loading-track-large">
+                    <div class="transpose-loading-bar"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="transpose-preview-pages is-empty" id="transpose-preview-pages">
+                <div class="transpose-preview-empty">
+                  <p class="transpose-preview-empty-title">Transpose preview</p>
+                  <p class="transpose-preview-empty-copy">Your PDF preview will appear here after upload.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="transpose-tool-intro" aria-label="How it works">
+        <article class="transpose-tool-step">
+          <strong>1. Upload your PDF</strong>
+          <span>Select a text-based chord chart from your device.</span>
+        </article>
+        <article class="transpose-tool-step">
+          <strong>2. Change the key</strong>
+          <span>Move the detected chords up or down one semitone at a time.</span>
+        </article>
+        <article class="transpose-tool-step">
+          <strong>3. Download the result</strong>
+          <span>Check the preview, then save your transposed PDF.</span>
+        </article>
+      </section>
+
+      <section class="transpose-tool-cta">
+        <div>
+          <h2>Need your whole setlist on stage?</h2>
+          <p>Organise charts, build setlists, annotate live, and share songs with your band in Chordasy.</p>
+        </div>
+        <div class="transpose-tool-downloads" aria-label="Download Chordasy">
+          <a class="button primary play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Get Chordasy on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <span class="button primary play-badge-button app-store-badge app-store-badge-pending" role="img" aria-label="Chordasy for iOS is coming soon on the App Store" title="Coming soon on the App Store">
+            <img src="Apple-Store-badge.png" alt="" />
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chordasy</span>
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </footer>
+
+    <script>
+      const transposeApiBase = "https://chordlab-transpose-api.onrender.com";
+      const state = { documentId: "", transpose: 0, downloadUrl: "" };
+      const elements = {
+        uploadTrigger: document.getElementById("transpose-upload-trigger"),
+        uploadInput: document.getElementById("transpose-upload-input"),
+        uploadFile: document.getElementById("transpose-upload-file"),
+        status: document.getElementById("transpose-demo-status"),
+        loading: document.getElementById("transpose-loading"),
+        previewLoading: document.getElementById("transpose-preview-loading"),
+        pages: document.getElementById("transpose-preview-pages"),
+        value: document.getElementById("transpose-demo-value"),
+        down: document.getElementById("transpose-demo-down"),
+        up: document.getElementById("transpose-demo-up"),
+        reset: document.getElementById("transpose-demo-reset"),
+        download: document.getElementById("transpose-download-button")
+      };
+
+      function setLoading(active) {
+        elements.loading.classList.toggle("hidden", !active);
+        elements.loading.setAttribute("aria-hidden", active ? "false" : "true");
+        elements.previewLoading.classList.toggle("hidden", !active);
+        elements.previewLoading.setAttribute("aria-hidden", active ? "false" : "true");
+      }
+
+      function setControlsEnabled(enabled) {
+        [elements.down, elements.up, elements.reset].forEach((button) => {
+          button.disabled = !enabled;
+        });
+      }
+
+      function updateValue() {
+        elements.value.textContent = `${state.transpose >= 0 ? "+" : ""}${state.transpose}`;
+      }
+
+      function updateDownload(url) {
+        state.downloadUrl = url || "";
+        elements.download.href = state.downloadUrl || "#";
+        elements.download.classList.toggle("is-disabled", !state.downloadUrl);
+        elements.download.setAttribute("aria-disabled", state.downloadUrl ? "false" : "true");
+      }
+
+      function renderEmptyState() {
+        elements.pages.classList.add("is-empty");
+        elements.pages.innerHTML = `
+          <div class="transpose-preview-empty">
+            <p class="transpose-preview-empty-title">Transpose preview</p>
+            <p class="transpose-preview-empty-copy">Your PDF preview will appear here after upload.</p>
+          </div>
+        `;
+      }
+
+      function renderPreview(payload) {
+        elements.pages.classList.remove("is-empty");
+        elements.pages.innerHTML = payload.pages.map((pageUrl, index) => `
+          <figure class="transpose-preview-page">
+            <img src="${pageUrl}" alt="Transposed PDF preview page ${index + 1}" loading="${index === 0 ? "eager" : "lazy"}" />
+          </figure>
+        `).join("");
+        updateDownload(payload.download_url || "");
+        updateValue();
+      }
+
+      async function apiJson(url, options) {
+        const response = await fetch(url, options);
+        let payload = null;
+        try {
+          payload = await response.json();
+        } catch (error) {
+          payload = null;
+        }
+        if (!response.ok) {
+          throw new Error((payload && payload.error) || `Request failed with status ${response.status}`);
+        }
+        return payload;
+      }
+
+      async function refreshPreview() {
+        if (!state.documentId) return;
+        elements.status.textContent = "Refreshing transpose preview...";
+        setLoading(true);
+        try {
+          const payload = await apiJson(
+            `${transposeApiBase}/api/transpose/${state.documentId}/preview?transpose=${state.transpose}`
+          );
+          renderPreview(payload);
+          elements.status.textContent = "Preview ready. Adjust the key or download your PDF.";
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      async function handleUpload(file) {
+        if (!file) return;
+        if (file.type && file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+          elements.status.textContent = "Please choose a PDF file.";
+          return;
+        }
+
+        state.transpose = 0;
+        state.documentId = "";
+        updateValue();
+        updateDownload("");
+        elements.uploadFile.textContent = file.name;
+        elements.status.textContent = "Uploading PDF and preparing preview...";
+        setLoading(true);
+        setControlsEnabled(false);
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          const payload = await apiJson(`${transposeApiBase}/api/transpose/upload`, {
+            method: "POST",
+            body: formData
+          });
+          state.documentId = payload.document_id || "";
+          renderPreview(payload);
+          setControlsEnabled(true);
+          elements.status.textContent = "Preview ready. Adjust the key or download your PDF.";
+        } catch (error) {
+          renderEmptyState();
+          updateDownload("");
+          elements.status.textContent = `We could not prepare this PDF. ${error.message}`;
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      elements.uploadTrigger.addEventListener("click", () => elements.uploadInput.click());
+      elements.uploadInput.addEventListener("change", () => {
+        const [file] = elements.uploadInput.files || [];
+        handleUpload(file);
+      });
+      elements.down.addEventListener("click", async () => {
+        if (!state.documentId) return;
+        state.transpose -= 1;
+        updateValue();
+        try {
+          await refreshPreview();
+        } catch (error) {
+          elements.status.textContent = `The preview could not be refreshed. ${error.message}`;
+        }
+      });
+      elements.up.addEventListener("click", async () => {
+        if (!state.documentId) return;
+        state.transpose += 1;
+        updateValue();
+        try {
+          await refreshPreview();
+        } catch (error) {
+          elements.status.textContent = `The preview could not be refreshed. ${error.message}`;
+        }
+      });
+      elements.reset.addEventListener("click", async () => {
+        if (!state.documentId) return;
+        state.transpose = 0;
+        updateValue();
+        try {
+          await refreshPreview();
+        } catch (error) {
+          elements.status.textContent = `The preview could not be refreshed. ${error.message}`;
+        }
+      });
+      elements.download.addEventListener("click", (event) => {
+        if (!state.downloadUrl) event.preventDefault();
+      });
+
+      renderEmptyState();
+      setControlsEnabled(false);
+      setLoading(false);
+      updateValue();
+      updateDownload("");
+    </script>
+  </body>
+</html>
