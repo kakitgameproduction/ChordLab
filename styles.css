@@ -412,16 +412,6 @@ main {
   object-fit: contain;
 }
 
-.app-store-badge-pending {
-  cursor: default;
-  opacity: 0.72;
-  filter: saturate(0.82);
-}
-
-.app-store-badge-pending:hover {
-  opacity: 0.72;
-}
-
 .button.secondary,
 .button.ghost {
   background: rgba(255, 255, 255, 0.06);
