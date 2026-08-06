@@ -306,6 +306,10 @@ main {
   display: none;
 }
 
+.mobile-organizing-providers {
+  display: none;
+}
+
 .eyebrow {
   margin: 0 0 14px;
   color: var(--accent-2);
@@ -2060,8 +2064,8 @@ main {
   }
 
   .brand img {
-    width: min(320px, 76vw);
-    max-height: 126px;
+    width: min(270px, 74vw);
+    max-height: 108px;
   }
 
   .header-controls {
@@ -2069,7 +2073,8 @@ main {
   }
 
   .hero {
-    gap: 26px;
+    gap: 0;
+    padding: 14px 0 32px;
   }
 
   .mobile-hero-downloads {
@@ -2079,13 +2084,32 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
     width: 100%;
+    text-align: center;
+  }
+
+  .mobile-hero-tagline {
+    max-width: 310px;
+    margin: 0 0 6px;
+    color: #f7fbff;
+    font-size: 1.08rem;
+    font-weight: 750;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  .mobile-hero-platforms {
+    margin: 4px 0 0;
+    color: rgba(232, 242, 255, 0.78);
+    font-size: 0.82rem;
+    font-weight: 650;
+    letter-spacing: 0.01em;
   }
 
   .mobile-hero-downloads .play-badge-button {
     display: block;
-    width: min(240px, 72vw);
+    width: min(225px, 68vw);
   }
 
   .mobile-hero-downloads .play-badge-button img {
@@ -2102,7 +2126,28 @@ main {
   }
 
   .hero-copy-bottom {
-    grid-row: 2;
+    display: none;
+  }
+
+  .mobile-organizing-providers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 14px;
+    margin: -4px 0 22px;
+    color: rgba(232, 242, 255, 0.82);
+    font-size: 0.82rem;
+    font-weight: 650;
+    text-align: center;
+  }
+
+  .mobile-organizing-providers > span {
+    width: 100%;
+  }
+
+  .mobile-organizing-providers .provider-logos {
+    justify-content: center;
   }
 
   .hero-story-grid {
@@ -2307,8 +2352,8 @@ main {
   }
 
   .brand img {
-    width: min(300px, 82vw);
-    max-height: 118px;
+    width: min(270px, 74vw);
+    max-height: 108px;
   }
 
   .header-controls {
@@ -2357,8 +2402,8 @@ main {
   }
 
   .hero {
-    gap: 20px;
-    padding-bottom: 8px;
+    gap: 0;
+    padding: 14px 0 32px;
   }
 
   .content-section {
