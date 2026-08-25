@@ -9,6 +9,9 @@ import fitz
 from .chords import is_probable_chord_token, transpose_chord_token
 
 
+TRANSPOSE_EXPORT_VERSION = "complex-chords-v2"
+
+
 class PdfService:
     def __init__(self, cache_root: Path) -> None:
         self.cache_root = cache_root
@@ -29,7 +32,11 @@ class PdfService:
         export_dir.mkdir(parents=True, exist_ok=True)
 
         if output_path is None:
-            suffix = f"_transpose_{semitones:+d}" if semitones else "_original"
+            suffix = (
+                f"_{TRANSPOSE_EXPORT_VERSION}_transpose_{semitones:+d}"
+                if semitones
+                else f"_{TRANSPOSE_EXPORT_VERSION}_original"
+            )
             output_path = export_dir / f"{self._safe_stem(source_path.stem)}{suffix}.pdf"
         else:
             output_path = Path(output_path)
@@ -192,7 +199,7 @@ class PdfService:
         filtered = [token for token in tokens if token and token not in {"|", "/"}]
         if not filtered:
             return False
-        chordish = sum(1 for token in filtered if is_probable_chord_token(token.strip("[](){}")))
+        chordish = sum(1 for token in filtered if is_probable_chord_token(token))
         if chordish == 0:
             return False
         if chordish / len(filtered) >= 0.55:
