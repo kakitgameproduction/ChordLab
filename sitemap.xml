@@ -42,4 +42,25 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://chordasy.com/chord-chart-app.html</loc>
+  </url>
+  <url>
+    <loc>https://chordasy.com/worship-setlist-app.html</loc>
+  </url>
+  <url>
+    <loc>https://chordasy.com/nashville-number-system.html</loc>
+  </url>
+  <url>
+    <loc>https://chordasy.com/band-mode.html</loc>
+  </url>
+  <url>
+    <loc>https://chordasy.com/chord-dictionary.html</loc>
+  </url>
+  <url>
+    <loc>https://chordasy.com/redeem.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

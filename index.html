@@ -516,6 +516,7 @@
             <div class="transpose-demo-bar">
               <span class="transpose-demo-bar-label" data-i18n="transposeDemoBarLabel">Transpose</span>
               <div class="transpose-demo-bar-controls">
+                <select id="transpose-demo-key" class="transpose-demo-key hidden" aria-label="Target key"><option value="">Select Key</option></select>
                 <button class="transpose-step-button" type="button" id="transpose-demo-down">-1</button>
                 <strong class="transpose-demo-value" id="transpose-demo-value">+0</strong>
                 <button class="transpose-step-button" type="button" id="transpose-demo-up">+1</button>
@@ -557,16 +558,47 @@
       </div>
     </div>
 
-    <footer class="site-footer">
-      <span data-i18n="footerCopy">© 2026 Chordasy</span>
-      <a href="index.html" data-i18n="footerHome">Home</a>
-      <a href="docs.html" data-i18n="footerDocs">Docs</a>
-      <a href="demos.html" data-i18n="footerDemos">Demos</a>
-      <a href="download.html" data-i18n="footerDownload">Download</a>
-      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
-      <a href="terms.html" data-i18n="footerTerms">Terms of Service</a>
-      <a href="contact.html" data-i18n="footerContact">Contact</a>
-    </footer>
+    <footer class="site-footer site-footer-expanded">
+  <div class="site-footer-inner">
+    <div class="footer-main-grid">
+      <div class="footer-brand-block">
+        <a class="footer-brand" href="index.html" aria-label="Chordasy home">Chordasy</a>
+        <p class="footer-tagline">Chord charts, setlists, transpose and band sharing — built for musicians.</p>
+      </div>
+
+      <nav class="footer-link-group" aria-label="Chordasy tools">
+        <h3>Tools</h3>
+        <a href="transpose-chord-chart-pdf.html">Free Chord Transposer</a>
+        <a href="nashville-number-system.html">Nashville Number System</a>
+        <a href="chord-dictionary.html">Chord Dictionary</a>
+      </nav>
+
+      <nav class="footer-link-group" aria-label="Chordasy for musicians">
+        <h3>For Musicians</h3>
+        <a href="chord-chart-app.html">Chord Chart App</a>
+        <a href="worship-setlist-app.html">Worship Setlist App</a>
+        <a href="band-mode.html">Band Mode</a>
+      </nav>
+
+      <nav class="footer-link-group" aria-label="Chordasy resources">
+        <h3>Resources</h3>
+        <a href="demos.html">Demos</a>
+        <a href="docs.html">Documentation</a>
+        <a href="download.html">Download</a>
+        <a href="redeem.html">Redeem Access Code</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom-row">
+      <span>© 2026 Chordasy</span>
+      <nav class="footer-legal-links" aria-label="Legal and contact links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 
     <script>
       const translations = {
@@ -897,6 +929,9 @@
         transpose: 0,
         filename: "",
         downloadUrl: "",
+        numberChart: false,
+        targetKey: "",
+        baseKey: "",
       };
       const transposeEls = {
         modal: document.getElementById("transpose-modal"),
@@ -910,6 +945,7 @@
         previewLoading: document.getElementById("transpose-preview-loading"),
         pages: document.getElementById("transpose-preview-pages"),
         value: document.getElementById("transpose-demo-value"),
+        key: document.getElementById("transpose-demo-key"),
         down: document.getElementById("transpose-demo-down"),
         up: document.getElementById("transpose-demo-up"),
         reset: document.getElementById("transpose-demo-reset"),
@@ -966,6 +1002,16 @@
       }
 
       function renderTransposePreview(payload) {
+        transposeDemoState.numberChart = payload.number_chart === true;
+        transposeDemoState.targetKey = payload.number_target_key || transposeDemoState.targetKey || "";
+        transposeEls.key.classList.toggle("hidden", !transposeDemoState.numberChart);
+        if (transposeDemoState.numberChart) {
+          if (transposeEls.key.options.length < 2) {
+            ["C","C#","D","Eb","E","F","F#","G","Ab","A","Bb","B"].forEach((key) => transposeEls.key.add(new Option(key, key)));
+          }
+          transposeEls.key.value = transposeDemoState.targetKey;
+          setTransposeControlsEnabled(Boolean(transposeDemoState.targetKey));
+        }
         transposeEls.pages.classList.remove("is-empty");
         transposeEls.pages.innerHTML = payload.pages
           .map(
@@ -1001,7 +1047,7 @@
         setTransposeStatus("transposeDemoStatusLoading", "Refreshing transpose preview...");
         setTransposeLoading(true);
         const payload = await transposeApiJson(
-          `${transposeApiBase}/api/transpose/${transposeDemoState.documentId}/preview?transpose=${transposeDemoState.transpose}`
+          `${transposeApiBase}/api/transpose/${transposeDemoState.documentId}/preview?transpose=${transposeDemoState.transpose}&target_key=${encodeURIComponent(transposeDemoState.targetKey)}`
         );
         renderTransposePreview(payload);
         setTransposeLoading(false);
@@ -1014,6 +1060,9 @@
         }
         transposeDemoState.transpose = 0;
         transposeDemoState.documentId = "";
+        transposeDemoState.numberChart = false;
+        transposeDemoState.targetKey = "";
+        transposeDemoState.baseKey = "";
         updateTransposeValue();
         updateTransposeDownload("");
         transposeEls.uploadFile.textContent = file.name;
@@ -1032,7 +1081,7 @@
           transposeDemoState.documentId = payload.document_id || "";
           transposeDemoState.filename = payload.filename || file.name;
           renderTransposePreview(payload);
-          setTransposeControlsEnabled(true);
+          setTransposeControlsEnabled(!transposeDemoState.numberChart || Boolean(transposeDemoState.targetKey));
           setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusReady", "Preview ready. Adjust the key and download when you are happy.");
         } catch (error) {
@@ -1202,6 +1251,11 @@
       transposeEls.down.addEventListener("click", async () => {
         if (!transposeDemoState.documentId) return;
         transposeDemoState.transpose -= 1;
+        if (transposeDemoState.numberChart) {
+          const keys = ["C","C#","D","Eb","E","F","F#","G","Ab","A","Bb","B"];
+          const base = keys.indexOf(transposeDemoState.baseKey || transposeDemoState.targetKey);
+          transposeDemoState.targetKey = keys[(base + transposeDemoState.transpose + 120) % 12];
+        }
         updateTransposeValue();
         try {
           await refreshTransposePreview();
@@ -1214,6 +1268,11 @@
       transposeEls.up.addEventListener("click", async () => {
         if (!transposeDemoState.documentId) return;
         transposeDemoState.transpose += 1;
+        if (transposeDemoState.numberChart) {
+          const keys = ["C","C#","D","Eb","E","F","F#","G","Ab","A","Bb","B"];
+          const base = keys.indexOf(transposeDemoState.baseKey || transposeDemoState.targetKey);
+          transposeDemoState.targetKey = keys[(base + transposeDemoState.transpose + 120) % 12];
+        }
         updateTransposeValue();
         try {
           await refreshTransposePreview();
@@ -1226,6 +1285,12 @@
       transposeEls.reset.addEventListener("click", async () => {
         if (!transposeDemoState.documentId) return;
         transposeDemoState.transpose = 0;
+        if (transposeDemoState.numberChart) {
+          transposeDemoState.targetKey = "";
+          transposeDemoState.baseKey = "";
+          transposeEls.key.value = "";
+          setTransposeControlsEnabled(false);
+        }
         updateTransposeValue();
         try {
           await refreshTransposePreview();
@@ -1239,6 +1304,13 @@
         if (!transposeDemoState.downloadUrl) {
           event.preventDefault();
         }
+      });
+      transposeEls.key.addEventListener("change", async () => {
+        transposeDemoState.targetKey = transposeEls.key.value;
+        transposeDemoState.baseKey = transposeEls.key.value;
+        transposeDemoState.transpose = 0;
+        updateTransposeValue();
+        if (transposeDemoState.targetKey) await refreshTransposePreview();
       });
       initStoryCarousel();
       closeTransposeModal();
